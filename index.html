@@ -14,7 +14,16 @@
 
 
     <div style="height: 30vw; margin: 0 5vw;">
-        <model-viewer id="plane" camera-controls autoplay auto-rotate ar ar-modes="webxr scene-viewer quick-look" shadow-intensity="2" src="cube.glb" alt=”a plane projecting image”
+        <model-viewer 
+                     id="plane"
+                     camera-controls
+                     autoplay auto-rotate
+                     ar
+                     shadow-intensity="2"
+                     src="cube.glb"
+                     magic-leap
+                     interaction-prompt="auto"
+                     alt=”a plane projecting image”
             style="width: 100%; height: 50vw;">
         </model-viewer>
     </div>
