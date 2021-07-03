@@ -1,0 +1,53 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 id="header">Test Model Viewer</h2>
+    <button id="changeBg" onclick=handleTap()>Change Background Color</button>
+    <button id="ApplyImg" onclick=updateTex()>Update Texture</button>
+
+
+    <div style="height: 30vw; margin: 0 5vw;">
+        <model-viewer id="plane" camera-controls autoplay ar ar-modes="webxr scene-viewer quick-look" shadow-intensity="2" src="cube.glb" alt=”a plane projecting image”
+            style="width: 100%; height: 50vw;">
+        </model-viewer>
+    </div>
+
+    <!-------------------- SCRIPTS ----------------->
+    <script type="module" src="https://unpkg.com/@google/model-viewer@0.3.1/dist/model-viewer.js">
+    </script>
+
+    <script nomodule src="https://unpkg.com/@google/model-viewer@0.3.1/dist/model-viewer-legacy.js">
+    </script>
+
+    <script>
+        let check;
+        check = false;
+        function handleTap() {
+            check = !check;
+            if (check == true) {
+                document.body.style.background = "#456f77";
+                document.getElementById('header').style.color = "white";
+            }
+            else {
+                document.body.style.background = "#ffffff";
+                document.getElementById('header').style.color = "black";
+            }
+        }
+
+        function updateTex() {
+            const modelViewerTexture = document.querySelector("model-viewer#plane");
+            let material = modelViewerTexture.model.materials[0];
+            material.pbrMetallicRoughness[channel].texture.source.setURI("heart.png");
+            alert(modelViewerTexture);
+        }
+    </script>
+</body>
+
+</html>
